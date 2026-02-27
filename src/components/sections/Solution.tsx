@@ -53,7 +53,7 @@ export function Solution() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {steps.map((item, i) => (
               <motion.div
                 key={i}
@@ -61,18 +61,23 @@ export function Solution() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-white/5 border border-white/10 p-8 rounded-xl hover:border-brand-gold/50 transition-colors group relative overflow-hidden"
+                className="bg-white/5 border border-white/10 p-8 rounded-2xl hover:border-brand-gold/50 hover:bg-white/[0.08] transition-all duration-300 group relative overflow-hidden"
               >
-                <div className="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-100 transition-opacity">
-                  <span className="font-mono text-4xl font-bold text-brand-gold/20">{item.step}</span>
+                <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-opacity">
+                  <span className="font-mono text-6xl font-bold text-brand-gold">{item.step}</span>
                 </div>
                 
-                <div className="mb-6">
-                  <span className="text-brand-gold font-mono text-xs tracking-widest uppercase">Step {item.step}</span>
+                <div className="mb-6 relative z-10">
+                  <span className="inline-block px-3 py-1 bg-brand-gold/10 border border-brand-gold/20 rounded text-brand-gold font-mono text-xs tracking-widest uppercase">Step {item.step}</span>
                 </div>
                 
-                <h3 className="text-lg font-bold mb-3 text-white group-hover:text-brand-gold transition-colors">{item.title}</h3>
-                <p className="text-slate-400 leading-relaxed text-sm">{item.desc}</p>
+                <h3 className="text-xl font-bold mb-4 text-white group-hover:text-brand-gold transition-colors relative z-10">{item.title}</h3>
+                <p className="text-slate-400 leading-relaxed text-sm relative z-10">{item.desc}</p>
+                
+                {/* Connecting Line (Visual only, for large screens) */}
+                {i !== steps.length - 1 && (
+                  <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-[1px] bg-white/10 z-0" />
+                )}
               </motion.div>
             ))}
           </div>

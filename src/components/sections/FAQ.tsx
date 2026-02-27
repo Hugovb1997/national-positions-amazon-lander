@@ -1,4 +1,4 @@
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import { Plus, Minus } from 'lucide-react';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
@@ -38,8 +38,10 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-24 bg-brand-dark border-t border-white/5">
-      <div className="container px-4 mx-auto max-w-3xl">
+    <section className="py-24 bg-brand-dark border-t border-white/5 relative overflow-hidden">
+      <div className="absolute inset-0 bg-grid-pattern opacity-[0.02] pointer-events-none" />
+      
+      <div className="container px-4 mx-auto max-w-3xl relative z-10">
         <div className="text-center mb-16">
           <p className="text-brand-gold font-mono text-xs tracking-widest uppercase mb-4">Questions</p>
           <h2 className="text-4xl font-bold text-white mb-6">
@@ -51,31 +53,44 @@ export function FAQ() {
           {faqs.map((faq, i) => (
             <div 
               key={i} 
-              className="bg-white/5 border border-white/10 rounded-xl overflow-hidden transition-colors hover:border-white/20"
+              className={cn(
+                "bg-brand-card border rounded-xl overflow-hidden transition-all duration-300",
+                openIndex === i ? "border-brand-gold/30 bg-white/[0.03]" : "border-white/10 hover:border-white/20"
+              )}
             >
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 className="w-full flex items-center justify-between p-6 text-left"
               >
-                <span className="font-bold text-white text-lg pr-8">{faq.question}</span>
+                <span className={cn(
+                  "font-bold text-lg pr-8 transition-colors duration-300",
+                  openIndex === i ? "text-brand-gold" : "text-white"
+                )}>
+                  {faq.question}
+                </span>
                 <div className={cn(
-                  "w-6 h-6 rounded-full border border-white/20 flex items-center justify-center shrink-0 transition-colors",
-                  openIndex === i ? "bg-brand-gold border-brand-gold text-brand-dark" : "text-white"
+                  "w-6 h-6 rounded-full border flex items-center justify-center shrink-0 transition-all duration-300",
+                  openIndex === i ? "bg-brand-gold border-brand-gold text-brand-dark rotate-180" : "border-white/20 text-white"
                 )}>
                   {openIndex === i ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
                 </div>
               </button>
               
-              <div 
-                className={cn(
-                  "overflow-hidden transition-all duration-300 ease-in-out",
-                  openIndex === i ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+              <AnimatePresence>
+                {openIndex === i && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="overflow-hidden"
+                  >
+                    <div className="p-6 pt-0 text-slate-400 leading-relaxed border-t border-white/5 mt-2">
+                      {faq.answer}
+                    </div>
+                  </motion.div>
                 )}
-              >
-                <div className="p-6 pt-0 text-slate-400 leading-relaxed">
-                  {faq.answer}
-                </div>
-              </div>
+              </AnimatePresence>
             </div>
           ))}
         </div>

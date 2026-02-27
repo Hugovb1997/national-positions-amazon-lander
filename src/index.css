@@ -6,10 +6,10 @@
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
   
   --color-brand-red: #FE0100;
-  --color-brand-gold: #FFCE7A;
+  --color-brand-gold: #D4AF37;
   --color-brand-green: #4DFF9A;
-  --color-brand-dark: #000000;
-  --color-brand-card: #121111;
+  --color-brand-dark: #050505;
+  --color-brand-card: #0A0A0A;
 }
 
 @layer base {
@@ -38,6 +38,16 @@
   }
 
   .bento-card {
-    @apply bg-[#121111] border border-white/10 rounded-xl overflow-hidden;
+    @apply bg-brand-card border border-white/10 rounded-xl overflow-hidden;
+  }
+
+  .animate-gradient {
+    animation: gradient 8s linear infinite;
+  }
+
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
   }
 }
