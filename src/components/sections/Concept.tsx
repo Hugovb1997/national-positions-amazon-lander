@@ -8,7 +8,7 @@ export function Concept() {
       <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-brand-green/5 rounded-full blur-[100px] pointer-events-none -translate-y-1/2 -translate-x-1/2" />
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-brand-red/5 rounded-full blur-[100px] pointer-events-none translate-y-1/2 translate-x-1/2" />
 
-      <div className="container px-4 mx-auto max-w-6xl relative z-10">
+      <div className="container px-4 mx-auto max-w-5xl relative z-10">
         
         {/* What Is Operator-Led Orchestration? */}
         <div className="max-w-4xl mx-auto mb-24 text-center">

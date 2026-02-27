@@ -7,7 +7,7 @@ export function CostOfWaiting() {
     <section className="py-24 bg-brand-dark relative overflow-hidden border-t border-white/5">
       <div className="absolute inset-0 bg-grid-pattern opacity-[0.02] pointer-events-none" />
       
-      <div className="container px-4 mx-auto max-w-6xl relative z-10">
+      <div className="container px-4 mx-auto max-w-5xl relative z-10">
         
         <div className="text-center mb-20">
           <p className="text-brand-red font-mono text-xs tracking-widest uppercase mb-4">The Cost of Waiting</p>

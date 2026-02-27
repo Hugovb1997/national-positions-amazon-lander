@@ -4,7 +4,7 @@ import { AlertTriangle, EyeOff, Layers, FileWarning, X, Check } from 'lucide-rea
 export function Problem() {
   return (
     <section id="problem" className="py-24 bg-brand-dark relative border-t border-white/5 overflow-hidden">
-      <div className="container px-4 mx-auto max-w-6xl relative z-10">
+      <div className="container px-4 mx-auto max-w-5xl relative z-10">
         
         {/* Why Your Amazon Channel Feels Broken */}
         <div className="text-center mb-20">

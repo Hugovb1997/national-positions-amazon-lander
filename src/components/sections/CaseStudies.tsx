@@ -43,7 +43,7 @@ export function CaseStudies() {
     <section id="results" className="py-24 bg-brand-dark border-t border-white/5 relative overflow-hidden">
       <div className="absolute inset-0 bg-grid-pattern opacity-[0.03] pointer-events-none" />
       
-      <div className="container px-4 mx-auto max-w-6xl relative z-10">
+      <div className="container px-4 mx-auto max-w-5xl relative z-10">
         <div className="text-center mb-20">
           <p className="text-brand-gold font-mono text-xs tracking-widest uppercase mb-4">Results</p>
           <motion.h2 

@@ -39,7 +39,7 @@ export function Solution() {
       {/* Background Grid */}
       <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none" />
       
-      <div className="container px-4 mx-auto max-w-6xl relative z-10">
+      <div className="container px-4 mx-auto max-w-5xl relative z-10">
         
         {/* How It Works */}
         <div>

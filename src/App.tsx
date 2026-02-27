@@ -1,5 +1,6 @@
 import { Header } from '@/components/sections/Header';
 import { Hero } from '@/components/sections/Hero';
+import { Authority } from '@/components/sections/Authority';
 import { Concept } from '@/components/sections/Concept';
 import { Problem } from '@/components/sections/Problem';
 import { Solution } from '@/components/sections/Solution';
@@ -15,6 +16,7 @@ export default function App() {
       <Header />
       <main>
         <Hero />
+        <Authority />
         <Concept />
         <Problem />
         <Solution />
